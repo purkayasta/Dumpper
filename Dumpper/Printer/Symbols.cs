@@ -2,7 +2,7 @@ using Spectre.Console;
 
 namespace Dumpper.Printer
 {
-    public class PrintSymbols
+    public class Symbols
     {
         internal static void PrintBracket(string bracket, string color = "red") => AnsiConsole.Markup("[{0}]{1}[/]", color, Markup.Escape($"{bracket}"));
         internal static void PrintComma(string comma, string color = "lime") => AnsiConsole.Markup("[{0}]{1}[/]", color, Markup.Escape(comma));
