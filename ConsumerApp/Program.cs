@@ -1,3 +1,3 @@
 ﻿using ConsumerApp;
 
-new CommonTypeTest().Execute();
+new ClassTypes().Execute();
