@@ -14,11 +14,12 @@ namespace ConsumerApp
                 m
             };
 
+            Model m2 = null;
+            m2.Dump();
+
+
             m.Dump();
-
-
             models.Dump();
-
         }
     }
 
