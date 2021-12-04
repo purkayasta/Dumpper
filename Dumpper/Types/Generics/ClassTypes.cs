@@ -2,7 +2,7 @@
 
 namespace Dumpper.Types.Generics
 {
-    public static class GenericType
+    public static class ClassTypes
     {
         public static void Dump<T>(this T instance) where T : class
         {
