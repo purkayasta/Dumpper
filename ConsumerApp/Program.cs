@@ -1,15 +1,15 @@
 ﻿using ConsumerApp;
 
-Console.WriteLine("=============");
+//Console.WriteLine("=============");
 
-new CommonTypeTest().Execute();
+//new CommonTypeTest().Execute();
 
-Console.WriteLine("=============");
-
-
-new ClassTypes().Execute();
+//Console.WriteLine("=============");
 
 
-Console.WriteLine("-====================-");
+new DicTypes().Execute();
 
-new StructType().Execute();
+
+//Console.WriteLine("-====================-");
+
+//new StructType().Execute();

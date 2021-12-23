@@ -1,5 +1,6 @@
-﻿using Dumpper.Types;
-using Dumpper.Types.Arrays;
+﻿
+
+using Dumpper.Types;
 
 namespace ConsumerApp
 {
@@ -13,9 +14,6 @@ namespace ConsumerApp
     {
         internal void Execute()
         {
-
-
-
             int a = 12;
             double b = 12.12;
             decimal c = 12.32m;
@@ -29,26 +27,24 @@ namespace ConsumerApp
             bool? nullable3 = null;
             string ab = "Hello World From Pritom";
 
+            //a.Dump();
+            //b.Dump();
+            //c.Dump();
+            //d.Dump();
+            //e.Dump();
+            //f.Dump();
+            //g.Dump("Header");
+            //nullable2?.Dump("Nullable Header");
+            //nullable3?.Dump();
+            //huda.test.Dump();
 
+            //List<int> list = new List<int>() { 1, 2, 3, 4, 5, 6, 7 };
+            //int[] vs = list.ToArray();
+            //string[] strArray = new string[5] { "asd", string.Empty, "23", "", "rgdf" };
 
-            a.Dump();
-            b.Dump();
-            c.Dump();
-            d.Dump();
-            e.Dump();
-            f.Dump();
-            g.Dump("Header");
-            nullable2?.Dump("Nullable Header");
-            nullable3?.Dump();
-            huda.test.Dump();
-
-            List<int> list = new List<int>() { 1, 2, 3, 4, 5, 6, 7 };
-            int[] vs = list.ToArray();
-            string[] strArray = new string[5] { "asd", string.Empty, "23", "", "rgdf" };
-
-            vs.Dump();
-            list.Dump();
-            strArray.Dump();
+            //vs.Dump();
+            //list.Dump();
+            //strArray.Dump();
             ab.Dump();
         }
     }

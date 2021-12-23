@@ -1,5 +1,4 @@
-﻿using Dumpper.Types;
-
+﻿
 namespace ConsumerApp
 {
     internal struct StructType
@@ -17,7 +16,7 @@ namespace ConsumerApp
             };
 
 
-            t.Dump();
+            //t.Dump();
         }
 
     }
