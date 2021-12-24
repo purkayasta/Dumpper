@@ -1,4 +1,5 @@
 ﻿using Dumpper.Printer;
+using Dumpper.Shared;
 using Spectre.Console;
 
 namespace Dumpper.Types.Generics
@@ -9,7 +10,7 @@ namespace Dumpper.Types.Generics
 		{
 			if (dictionary == null)
 			{
-				PrimitiveValuePrinter.PrintLine($"Dictonary is empty 😞");
+				PrimitiveValuePrinter.PrintLine($"Dictionary is empty 😞", Color.Red1);
 				return;
 			}
 			GenericDictonaryPrinter.Print(dictionary);
@@ -19,10 +20,15 @@ namespace Dumpper.Types.Generics
 		{
 			if (dictionaries.Count < 1)
 			{
-				PrimitiveValuePrinter.PrintLine("Dictonary List is empty 😭");
+				PrimitiveValuePrinter.PrintLine("Dictionary List is empty 😭", Color.Red1);
 			}
 
 			GenericDictonaryPrinter.PrintList(dictionaries);
+		}
+
+		public static void Dump<TKey, TValue>(this IEnumerable<Dictionary<TKey, TValue>> dictionaries)
+		{
+			Dump(dictionaries.ToList());
 		}
 	}
 }

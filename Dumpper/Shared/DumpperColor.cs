@@ -1,6 +1,16 @@
-﻿namespace Dumpper.Shared
+namespace Dumpper.Shared
 {
-    public enum DumpperColor
-    {
-    }
+	public enum DumpperColor
+	{
+		Maroon,
+		LightGreen,
+		Green,
+		Olive,
+		Navy,
+		Cyan,
+		Red,
+		DarkRed
+	}
+
+	
 }

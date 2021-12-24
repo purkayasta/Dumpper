@@ -7,7 +7,9 @@
 //Console.WriteLine("=============");
 
 
-new DicTypes().Execute();
+// new DicTypes().Execute();
+
+new TupTypes().Execute();
 
 
 //Console.WriteLine("-====================-");

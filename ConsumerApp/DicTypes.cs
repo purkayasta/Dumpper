@@ -29,11 +29,14 @@ namespace ConsumerApp
 
 
 			var lists = new List<Dictionary<int, string>>();
-			lists.Add(dict);
-			lists.Add(dict2);
+			// lists.Add(dict);
+			// lists.Add(dict2);
 
 
 			lists.Dump();
+
+
+
 		}
 	}
 }
