@@ -3,7 +3,7 @@ namespace ConsumerApp
 {
     internal struct StructType
     {
-       
+
 
 
 

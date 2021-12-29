@@ -1,34 +1,33 @@
 ﻿using Dumpper.Printer;
-using Dumpper.Shared;
 using Spectre.Console;
 
 namespace Dumpper.Types.Generics
 {
-	public static class DictionaryTypes
-	{
-		public static void Dump<TKey, TValue>(this Dictionary<TKey, TValue> dictionary)
-		{
-			if (dictionary == null)
-			{
-				PrimitiveValuePrinter.PrintLine($"Dictionary is empty 😞", Color.Red1);
-				return;
-			}
-			GenericDictonaryPrinter.Print(dictionary);
-		}
+    public static class DictionaryTypes
+    {
+        public static void Dump<TKey, TValue>(this Dictionary<TKey, TValue> dictionary)
+        {
+            if (dictionary == null)
+            {
+                PrimitiveValuePrinter.PrintLine($"Dictionary is empty 😞", Color.Red1);
+                return;
+            }
+            GenericDictonaryPrinter.Print(dictionary);
+        }
 
-		public static void Dump<TKey, TValue>(this List<Dictionary<TKey, TValue>> dictionaries)
-		{
-			if (dictionaries.Count < 1)
-			{
-				PrimitiveValuePrinter.PrintLine("Dictionary List is empty 😭", Color.Red1);
-			}
+        public static void Dump<TKey, TValue>(this List<Dictionary<TKey, TValue>> dictionaries)
+        {
+            if (dictionaries.Count < 1)
+            {
+                PrimitiveValuePrinter.PrintLine("Dictionary List is empty 😭", Color.Red1);
+            }
 
-			GenericDictonaryPrinter.PrintList(dictionaries);
-		}
+            GenericDictonaryPrinter.PrintList(dictionaries);
+        }
 
-		public static void Dump<TKey, TValue>(this IEnumerable<Dictionary<TKey, TValue>> dictionaries)
-		{
-			Dump(dictionaries.ToList());
-		}
-	}
+        public static void Dump<TKey, TValue>(this IEnumerable<Dictionary<TKey, TValue>> dictionaries)
+        {
+            Dump(dictionaries.ToList());
+        }
+    }
 }

@@ -43,7 +43,7 @@ namespace ConsumerApp
 
     internal interface IModel
     {
-        
+
         public void Get();
     }
 }

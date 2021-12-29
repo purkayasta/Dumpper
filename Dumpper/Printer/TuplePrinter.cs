@@ -9,7 +9,7 @@ namespace Dumpper.Printer
         {
             var type = typeof(T);
             var properties = type.GetProperties();
-            
+
             if (properties.Length < 1)
             {
                 AnsiConsole.Write(new Markup($"[{DumpperColor.LightGreen}]{instance}[/]"));
