@@ -1,9 +1,8 @@
-using System;
 using Spectre.Console;
 
 namespace Dumpper.Printer
 {
-	public class GenericDictonaryPrinter
+    public class GenericDictonaryPrinter
 	{
 		internal static void Print<TKey, TValue>(Dictionary<TKey, TValue> instance)
 		{
@@ -26,8 +25,6 @@ namespace Dumpper.Printer
 
 			return dictonaryTable;
 		}
-
-
 
 		internal static void PrintList<TKey, TValue>(List<Dictionary<TKey, TValue>> instances)
 		{

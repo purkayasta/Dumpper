@@ -12,7 +12,7 @@ namespace Dumpper.Printer
             
             if (properties.Length < 1)
             {
-                PrintValueTuple(instance);
+                AnsiConsole.Write(new Markup($"[{DumpperColor.LightGreen}]{instance}[/]"));
                 return;
             }
 
@@ -23,10 +23,5 @@ namespace Dumpper.Printer
             }
             AnsiConsole.Write(tree);
         }
-        private static void PrintValueTuple<T>(T tuples)
-        {
-            Console.WriteLine(tuples);
-        }
-        
     }
 }
