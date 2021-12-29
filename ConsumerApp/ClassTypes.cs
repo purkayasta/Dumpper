@@ -1,4 +1,6 @@
-﻿using Dumpper.Types.Generics;
+﻿
+
+using Dumpper.Types.Generics;
 
 namespace ConsumerApp
 {

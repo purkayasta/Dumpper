@@ -3,7 +3,7 @@ using Spectre.Console;
 
 namespace Dumpper.Printer
 {
-	internal class GenericClassPrinter<T> where T : class
+	internal class GenericClassPrinter
 	{
 		internal static void Print(PropertyInfo[] properties, string className)
 		{
@@ -15,7 +15,7 @@ namespace Dumpper.Printer
 			AnsiConsole.Write(tree);
 		}
 
-		internal static void Print(PropertyInfo[] properties, string className, T instance)
+		internal static void Print<T>(PropertyInfo[] properties, string className, T instance)
 		{
 			var tree = new Tree(className).Style("Yellow1");
 			foreach (var property in properties)
@@ -25,7 +25,7 @@ namespace Dumpper.Printer
 			AnsiConsole.Write(tree);
 		}
 
-		internal static void PrintList(PropertyInfo[] classProperties, IEnumerable<T> instances)
+		internal static void PrintList<T>(PropertyInfo[] classProperties, IEnumerable<T> instances)
 		{
 			var table = new Table();
 

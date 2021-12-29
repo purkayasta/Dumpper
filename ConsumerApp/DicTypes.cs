@@ -1,9 +1,10 @@
-﻿using Dumpper.Types.Generics;
+﻿
+using Dumpper.Types.Generics;
 
 namespace ConsumerApp
 {
 
-	internal class DicTypes
+    internal class DicTypes
 	{
 		public void Execute()
 		{
@@ -29,11 +30,11 @@ namespace ConsumerApp
 
 
 			var lists = new List<Dictionary<int, string>>();
-			// lists.Add(dict);
-			// lists.Add(dict2);
+            lists.Add(dict);
+            lists.Add(dict2);
 
 
-			lists.Dump();
+            lists.Dump();
 
 
 

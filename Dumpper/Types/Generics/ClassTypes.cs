@@ -5,14 +5,14 @@ namespace Dumpper.Types.Generics
 {
 	public static class ClassTypes
 	{
-		public static void Dump<T>(this T instance) where T : class
+		public static void Dump<T>(this T instance)
 		{
 			var className = typeof(T).Name;
 
 			if (instance == null)
 			{
 				instance = (T)Activator.CreateInstance(typeof(T));
-				GenericClassPrinter<T>.Print(instance.GetType().GetProperties(), className);
+				GenericClassPrinter.Print(instance.GetType().GetProperties(), className);
 				PrimitiveValuePrinter.PrintLine($"Empty instances {className}");
 
 				return;
@@ -20,10 +20,10 @@ namespace Dumpper.Types.Generics
 
 			var properties = instance.GetType().GetProperties();
 
-			GenericClassPrinter<T>.Print(properties, className, instance);
+			GenericClassPrinter.Print(properties, className, instance);
 		}
 
-		public static void Dump<T>(this List<T> instances) where T : class
+		public static void Dump<T>(this List<T> instances)
 		{
 			if (instances.Count < 1)
 			{
@@ -39,7 +39,7 @@ namespace Dumpper.Types.Generics
 
 			if (isDict)
 			{
-				System.Console.WriteLine("It is dictonary type");
+                Console.WriteLine("It is dictonary type");
 			}
 
 			if (isTuples)
@@ -54,7 +54,7 @@ namespace Dumpper.Types.Generics
 
 			var properties = types.GetProperties();
 
-			GenericClassPrinter<T>.PrintList(properties, instances);
+			GenericClassPrinter.PrintList(properties, instances);
 		}
 	}
 }
