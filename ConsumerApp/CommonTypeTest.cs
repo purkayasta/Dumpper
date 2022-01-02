@@ -14,18 +14,18 @@ namespace ConsumerApp
     {
         internal void Execute()
         {
-            int a = 12;
-            double b = 12.12;
-            decimal c = 12.32m;
-            uint d = 12;
-            char e = 'a';
-            float f = 0.1f;
-            bool g = true;
+            // int a = 12;
+            // double b = 12.12;
+            // decimal c = 12.32m;
+            // uint d = 12;
+            // char e = 'a';
+            // float f = 0.1f;
+            // bool g = true;
 
-            string? nullable = string.Empty;
-            int? nullable2 = null;
-            bool? nullable3 = null;
-            string ab = "Hello World From Pritom";
+            // string? nullable = string.Empty;
+            // int? nullable2 = null;
+            // bool? nullable3 = null;
+            // string ab = "Hello World From Pritom";
 
             //a.Dump();
             //b.Dump();
@@ -45,7 +45,7 @@ namespace ConsumerApp
             //vs.Dump();
             //list.Dump();
             //strArray.Dump();
-            ab.Dump();
+            // ab.Dump();
         }
     }
 }
