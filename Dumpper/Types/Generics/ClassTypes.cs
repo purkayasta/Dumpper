@@ -33,24 +33,24 @@ namespace Dumpper.Types.Generics
 
             var types = instances[0].GetType();
 
-            bool isDict = types.GetGenericTypeDefinition() == typeof(Dictionary<,>);
-            bool isTuples = types.GetGenericTypeDefinition() == typeof(Tuple<,>);
-            bool isHashMaps = types.GetGenericTypeDefinition() == typeof(Hashtable);
+            // bool isDict = types.GetGenericTypeDefinition() == typeof(Dictionary<,>);
+            // bool isTuples = types.GetGenericTypeDefinition() == typeof(Tuple<,>);
+            // bool isHashMaps = types.GetGenericTypeDefinition() == typeof(Hashtable);
 
-            if (isDict)
-            {
-                Console.WriteLine("It is dictonary type");
-            }
+            // if (isDict)
+            // {
+            //     Console.WriteLine("It is dictonary type");
+            // }
 
-            if (isTuples)
-            {
-                System.Console.WriteLine("It is a tuple type");
-            }
+            // if (isTuples)
+            // {
+            //     System.Console.WriteLine("It is a tuple type");
+            // }
 
-            if (isHashMaps)
-            {
-                System.Console.WriteLine("It is a hash map");
-            }
+            // if (isHashMaps)
+            // {
+            //     System.Console.WriteLine("It is a hash map");
+            // }
 
             var properties = types.GetProperties();
 

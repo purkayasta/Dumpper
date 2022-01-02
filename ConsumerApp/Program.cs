@@ -9,8 +9,9 @@
 
 //new DicTypes().Execute();
 
-new TupTypes().Execute();
+// new TupTypes().Execute();
 
+new ClassTypes().Execute();
 
 //Console.WriteLine("-====================-");
 
