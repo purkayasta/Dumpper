@@ -9,7 +9,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dumpper", "Dumpper\Dumpper.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8645E4E5-3A4A-419A-A154-9A5EFF853885}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsumerApp", "ConsumerApp\ConsumerApp.csproj", "{90D3C637-0490-43F3-BAA2-AA3BC9FBE20C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsumerApp", "ConsumerApp\ConsumerApp.csproj", "{90D3C637-0490-43F3-BAA2-AA3BC9FBE20C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{58620292-0513-4311-A869-4BD35704A986}"
+	ProjectSection(SolutionItems) = preProject
+		Exceptions.md = Exceptions.md
+		Tasks.md = Tasks.md
+		Testing.md = Testing.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

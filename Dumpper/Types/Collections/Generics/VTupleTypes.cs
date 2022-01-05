@@ -1,6 +1,6 @@
 ﻿using Dumpper.Printer;
 
-namespace Dumpper.Types.Generics
+namespace Dumpper.Types.Collections.Generics
 {
     public static class VTupleTypes
     {

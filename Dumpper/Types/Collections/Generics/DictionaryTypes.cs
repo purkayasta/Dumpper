@@ -1,7 +1,7 @@
 ﻿using Dumpper.Printer;
 using Spectre.Console;
 
-namespace Dumpper.Types.Generics
+namespace Dumpper.Types.Collections.Generics
 {
     public static class DictionaryTypes
     {
@@ -27,7 +27,7 @@ namespace Dumpper.Types.Generics
 
         public static void Dump<TKey, TValue>(this IEnumerable<Dictionary<TKey, TValue>> dictionaries)
         {
-            Dump(dictionaries.ToList());
+            dictionaries.ToList().Dump();
         }
     }
 }

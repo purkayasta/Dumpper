@@ -2,7 +2,6 @@
 
 //Console.WriteLine("=============");
 
-//new CommonTypeTest().Execute();
 
 //Console.WriteLine("=============");
 
@@ -11,6 +10,7 @@
 
 // new TupTypes().Execute();
 
+new CommonTypeTest().Execute();
 new ClassTypes().Execute();
 
 //Console.WriteLine("-====================-");

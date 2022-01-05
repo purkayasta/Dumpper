@@ -1,9 +1,10 @@
 ﻿
-using Dumpper.Types.Generics;
+
+using Dumpper.Types.Collections.Generics;
 
 namespace ConsumerApp
 {
-	internal class ClassTypes
+    internal class ClassTypes
 	{
 		internal void Execute()
 		{
@@ -20,6 +21,9 @@ namespace ConsumerApp
 			{
 				Name = "Kazi"
 			});
+
+			Model model2 = new Model();
+			model2.Dump();
 
 			model.Dump();
 		}

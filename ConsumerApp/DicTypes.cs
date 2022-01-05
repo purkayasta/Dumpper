@@ -1,5 +1,5 @@
 ﻿
-using Dumpper.Types.Generics;
+using Dumpper.Types.Collections.Generics;
 
 namespace ConsumerApp
 {
