@@ -9,7 +9,7 @@ vs[1] = 0;
 vs.Dump();
 ```
 
-- Custom Dictionaries with class doesnot work
+- Custom Dictionaries with class doesnot work ✔
 ```c#
 
 Model m = new();

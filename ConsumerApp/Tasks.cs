@@ -13,7 +13,12 @@ public class Tasks
 		m.Name = "Pritom";
 		Dictionary<Model, string> keyValuePairs = new();
 		keyValuePairs.Add(m, "Purkayasta");
+
 		keyValuePairs.Dump();
+
+		Dictionary<int, Model> keyValuePairs1 = new();
+		keyValuePairs1.Add(1, m);
+		keyValuePairs1.Dump();
 	}
 
 	internal class Model
