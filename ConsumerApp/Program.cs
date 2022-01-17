@@ -10,9 +10,11 @@
 
 // new TupTypes().Execute();
 
-new CommonTypeTest().Execute();
-new ClassTypes().Execute();
+// new CommonTypeTest().Execute();
+// new ClassTypes().Execute();
 
 //Console.WriteLine("-====================-");
 
 //new StructType().Execute();
+
+Tasks.Execute();
