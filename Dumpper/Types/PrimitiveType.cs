@@ -46,8 +46,6 @@ namespace Dumpper.Types
         public static void Dump(this short val) => Dump(val.ToString());
         public static void Dump(this short val, string headerTxt) => Dump(val.ToString(), headerTxt);
 
-
-
         public static void Dump(this string val) => PrimitiveValuePrinter.PrintLine(val);
         public static void Dump(this string val, string startingText) => PrimitiveValuePrinter.PrintLine(val, startingText);
     }

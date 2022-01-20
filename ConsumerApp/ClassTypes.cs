@@ -1,55 +1,61 @@
 ﻿
 
-using Dumpper.Types.Collections.Generics;
+using Dumpper.Types.Collections;
 
 namespace ConsumerApp
 {
     internal class ClassTypes
-	{
-		internal void Execute()
-		{
-			var model = new List<Model>();
-			model.Add(new Model
-			{
-				Name = "123"
-			});
-			model.Add(new Model
-			{
-				Name = "321"
-			});
-			model.Add(new Model
-			{
-				Name = "Kazi"
-			});
+    {
+        internal void Execute()
+        {
+            var model = new List<Model>();
+            model.Add(new Model
+            {
+                Name = "123"
+            });
+            model.Add(new Model
+            {
+                Name = "321"
+            });
+            model.Add(new Model
+            {
+                Name = "Kazi"
+            });
 
-			Model model2 = new Model();
-			model2.Dump();
+            Model model2 = new Model();
+            model2.Dump();
 
-			model.Dump();
-		}
-	}
+            model.Dump();
 
-	internal class Model : Base, IModel
-	{
-		public int Id { get; set; }
-		public string? Name { get; set; }
-		public string? Email { get; set; }
-		public DateTime CreatedOn { get; set; }
+            //var model2 = new List<string>();
+            //model2.Add("123");
+            //model2.Add("312");
+            //model2.Add("432");
+            //model2.Dump();
+        }
+    }
 
-		public void Get()
-		{
-			Console.WriteLine("asdasd");
-		}
-	}
+    internal class Model : Base, IModel
+    {
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public string? Email { get; set; }
+        public DateTime CreatedOn { get; set; }
 
-	internal class Base
-	{
-		public DateTime ModifiedOn { get; set; } = new DateTime();
-	}
+        public void Get()
+        {
+            Console.WriteLine("asdasd");
+        }
+    }
 
-	internal interface IModel
-	{
+    internal class Base
+    {
+        public DateTime ModifiedOn { get; set; } = new DateTime();
+    }
 
-		public void Get();
-	}
+    internal interface IModel
+    {
+
+        public void Get();
+    }
 }

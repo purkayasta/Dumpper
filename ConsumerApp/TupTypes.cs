@@ -1,4 +1,4 @@
-using Dumpper.Types.Collections.Generics;
+using Dumpper.Types.Collections;
 namespace ConsumerApp
 {
 	public class TupTypes

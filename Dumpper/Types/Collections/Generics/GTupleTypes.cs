@@ -1,7 +1,7 @@
 using Dumpper.Printer;
 using Spectre.Console;
 
-namespace Dumpper.Types.Collections.Generics
+namespace Dumpper.Types.Collections
 {
     public static class GTupleTypes
     {

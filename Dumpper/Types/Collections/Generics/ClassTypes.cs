@@ -1,6 +1,6 @@
 ﻿using Dumpper.Printer;
 
-namespace Dumpper.Types.Collections.Generics
+namespace Dumpper.Types.Collections
 {
     public static class ClassTypes
     {
