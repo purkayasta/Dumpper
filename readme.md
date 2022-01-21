@@ -2,6 +2,10 @@
 
 Able to print IEnumrable, List without for loop in your console 🎉
 
+![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/Dumpper?style=for-the-badge)
+
+![Nuget](https://img.shields.io/nuget/dt/Dumpper?style=for-the-badge)
+
 # Usage
 
 Use the dump keyword to your data type
@@ -20,6 +24,5 @@ model.Dump();// ==> Dump();
 ## Example:2
 
 ![demo2](https://user-images.githubusercontent.com/12936435/150546063-1881b6c2-9d9b-44b5-93e0-4429ed6d4bbd.png)
-
 
 ![demo2_run](https://user-images.githubusercontent.com/12936435/150546064-194f55ac-9b43-4eb1-a743-e862ebaac309.png)
