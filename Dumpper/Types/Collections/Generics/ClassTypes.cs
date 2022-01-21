@@ -65,26 +65,30 @@ namespace Dumpper.Types.Collections
             if (underlyingSystemName.Contains("List"))
             {
                 var typeArguments = underlyingBaseType.UnderlyingSystemType.GetGenericArguments();
-                if (typeArguments.Length > 0)
+
+                if (typeArguments.Length < 1)
                 {
-                    var convertionType = typeArguments[0];
-
-                    if (convertionType.Name.Contains("Int"))
-                    {
-                        var converted = instance as List<int>;
-                        if (converted.Count > 0)
-                            PrimitiveArrayPrinter.Print(converted.ToArray());
-                    }
-
-                    if (convertionType.Name.Contains("String"))
-                    {
-                        var converted = instance as List<string>;
-                        if (converted.Count > 0)
-                            PrimitiveArrayPrinter.Print(converted.ToArray());
-                    }
+                    PrimitiveValuePrinter.PrintLine("Nothing to print 🙏💔");
+                    return true;
                 }
 
-                return true;
+                var convertionType = typeArguments[0];
+
+                if (convertionType.Name.Contains("Int"))
+                {
+                    var converted = instance as List<int>;
+                    if (converted.Count > 0) PrimitiveArrayPrinter.Print(converted.ToArray());
+
+                    return true;
+                }
+
+                if (convertionType.Name.Contains("String"))
+                {
+                    var converted = instance as List<string>;
+                    if (converted.Count > 0) PrimitiveArrayPrinter.Print(converted.ToArray());
+
+                    return true;
+                }
             }
 
             return false;
