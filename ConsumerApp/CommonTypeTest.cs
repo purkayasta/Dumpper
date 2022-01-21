@@ -1,5 +1,6 @@
 ﻿
 
+using System.Collections.Generic;
 using Dumpper.Types.Collections;
 
 namespace ConsumerApp

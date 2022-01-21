@@ -1,3 +1,4 @@
+using System;
 using Dumpper.Types.Collections;
 namespace ConsumerApp
 {
