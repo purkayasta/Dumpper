@@ -52,13 +52,27 @@ namespace Dumpper.Types.Collections
 
             if (underlyingSystemName.Contains("Int"))
             {
-                PrimitiveArrayPrinter.Print(instance as int[]);
+                try
+                {
+                    PrimitiveArrayPrinter.Print(instance as int[]);
+                }
+                catch (Exception)
+                {
+                    PrimitiveType.Dump(instance as string);
+                }
                 return true;
             }
 
             if (underlyingSystemName.Contains("String"))
             {
-                PrimitiveArrayPrinter.Print(instance as string[]);
+                try
+                {
+                    PrimitiveArrayPrinter.Print(instance as string[]);
+                }
+                catch (Exception)
+                {
+                    PrimitiveType.Dump(instance as string);
+                }
                 return true;
             }
 

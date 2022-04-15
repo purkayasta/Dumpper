@@ -5,7 +5,7 @@ using Dumpper.Types.Collections;
 
 namespace ConsumerApp
 {
-	enum huda
+	public enum huda
 	{
 		test,
 		tes2
@@ -21,7 +21,8 @@ namespace ConsumerApp
 
 			//vs.Dump(); //=> base type
 			list.Dump(); //=> generic type
-			strArray.Dump(); // =>
+			strArray.Dump(); // =>'
+			
 		}
 	}
 }
