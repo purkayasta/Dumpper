@@ -1,6 +1,6 @@
-# Dumpper - Just Dump It ✂ (An utility Extension)
+# Dumpper - Just Print It ✂ (An utility Extension)
 
-Able to print IEnumrable, List without for loop in your console 🎉
+Able to print anything in your console 🎉
 
 ![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/Dumpper?color=red&style=for-the-badge)
 ![Nuget](https://img.shields.io/nuget/dt/Dumpper?color=blue&style=for-the-badge)

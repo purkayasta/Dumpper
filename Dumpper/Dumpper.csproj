@@ -5,8 +5,8 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<PackageId>Dumpper</PackageId>
-		<Version>0.0.4-alpha.1</Version>
-		<PackageTags>C#, Dotnet Core, Dump, Console, Print</PackageTags>
+		<Version>0.0.5</Version>
+		<PackageTags>C#, dotnet, dumping stuff in terminal, Console, Print, Writeline</PackageTags>
 		<Description>Print any type in your console</Description>
 		<Authors>Pritom Purkayasta</Authors>
 	</PropertyGroup>
