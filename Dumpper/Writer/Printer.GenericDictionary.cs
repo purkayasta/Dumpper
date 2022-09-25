@@ -40,9 +40,9 @@ internal sealed partial class Printer
         AnsiConsole.Write(dictionaryTree);
     }
 
-    private static IRenderable GenerateColumn(PropertyInfo[] propertyInfos, string className)
+    private static IRenderable GenerateColumn<T>(T instance, PropertyInfo[] propertyInfos, string className)
     {
-        var tree = Printer.GenerateTree(propertyInfos, className);
+        var tree = Printer.GenerateTree(instance, propertyInfos, className);
         return tree;
     }
 
@@ -80,8 +80,8 @@ internal sealed partial class Printer
                 if (keyProperties is not null && valueProperties is not null)
                 {
                     dictionaryTable.AddRow(
-                        GenerateColumn(keyProperties, typeof(TKey).Name),
-                        GenerateColumn(valueProperties, typeof(TValue).Name));
+                        GenerateColumn(item.Key, keyProperties, typeof(TKey).Name),
+                        GenerateColumn(item.Value, valueProperties, typeof(TValue).Name));
                 }
             }
             else if (keyType)
@@ -90,7 +90,7 @@ internal sealed partial class Printer
                 if (keyProperties is not null)
                 {
                     dictionaryTable.AddRow(
-                        GenerateColumn(keyProperties, typeof(TKey).Name),
+                        GenerateColumn(item.Key, keyProperties, typeof(TKey).Name),
                         new Markup($"[{Utils.RandomColor().ToText()}]{item.Value?.ToString() ?? string.Empty}[/]"));
                 }
 
@@ -102,7 +102,7 @@ internal sealed partial class Printer
                 {
                     dictionaryTable.AddRow(
                         new Markup(item.Key?.ToString() ?? string.Empty),
-                        GenerateColumn(valueProperties, typeof(TValue).Name));
+                        GenerateColumn(item.Value, valueProperties, typeof(TValue).Name));
                 }
             }
             else

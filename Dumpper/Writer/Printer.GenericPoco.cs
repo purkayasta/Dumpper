@@ -25,12 +25,20 @@ internal sealed partial class Printer
 
         return tree;
     }
-    internal static void Print<T>(PropertyInfo[] properties, string className, T instance)
+
+    internal static Tree GenerateTree<T>(T instance, PropertyInfo[] properties, string className)
     {
         Tree tree = new Tree(string.IsNullOrEmpty(className) ? "Default" : className).Style($"{DumpperColor.Aqua.ToText()}");
 
         foreach (var property in properties)
             tree.AddNodes(new Markup($"[bold {DumpperColor.Purple.ToText()}]{property?.Name} [/] : {property?.GetValue(instance, null)}"));
+
+        return tree;
+    }
+
+    internal static void Print<T>(PropertyInfo[] properties, string className, T instance)
+    {
+        var tree = GenerateTree(instance, properties, className);
 
         AnsiConsole.Write(tree);
     }
