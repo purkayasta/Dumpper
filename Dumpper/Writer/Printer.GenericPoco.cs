@@ -1,4 +1,10 @@
-﻿using System.Reflection;
+﻿// ---------------------------------------------------------------
+// Copyright (c) Pritom Purkayasta All rights reserved.
+// FREE TO USE TO CONNECT THE WORLD
+// ---------------------------------------------------------------
+
+using System.Reflection;
+using Dumpper.Shared;
 using Spectre.Console;
 
 namespace Dumpper.Writer;
@@ -12,31 +18,27 @@ internal sealed partial class Printer
     }
     internal static Tree GenerateTree(PropertyInfo[] properties, string className)
     {
-        Tree tree = new Tree(className).Style("Red");
-        foreach (var property in properties) tree.AddNodes(new Markup($"[bold white]{property.Name}[/]"));
+        Tree tree = new Tree(string.IsNullOrEmpty(className) ? "Default" : className).Style($"{DumpperColor.Aqua.ToText()}");
+
+        foreach (var property in properties)
+            tree.AddNodes(new Markup($"[bold {DumpperColor.Red.ToText()}]{property.Name}[/]"));
 
         return tree;
     }
-
     internal static void Print<T>(PropertyInfo[] properties, string className, T instance)
     {
-        Tree tree = new Tree(className).Style("Yellow1");
+        Tree tree = new Tree(string.IsNullOrEmpty(className) ? "Default" : className).Style($"{DumpperColor.Aqua.ToText()}");
+
         foreach (var property in properties)
-        {
-            tree.AddNodes(new Markup($"[bold green1]{property?.Name} [/] : {property?.GetValue(instance, null)}"));
-        }
+            tree.AddNodes(new Markup($"[bold {DumpperColor.Purple.ToText()}]{property?.Name} [/] : {property?.GetValue(instance, null)}"));
 
         AnsiConsole.Write(tree);
     }
-
     internal static void PrintList<T>(PropertyInfo[] classProperties, IEnumerable<T> instances)
     {
-        Table table = new Table();
+        Table table = new();
 
         bool isTableColumnGenerated = false;
-
-        // foreach (var prop in classProperties)
-        //     table.AddColumn(new TableColumn($"[green]{prop.Name}[/]").Centered());
 
         string[] columnValues = new string[classProperties.Length];
 
@@ -46,13 +48,10 @@ internal sealed partial class Printer
             {
                 var values = classProperties[i].GetValue(instance);
 
-                if (values is null)
-                    columnValues[i] = string.Empty;
-                else
-                    columnValues[i] = values?.ToString();
+                columnValues[i] = values?.ToString() ?? String.Empty;
 
                 if (!isTableColumnGenerated)
-                    table.AddColumn(new TableColumn($"[green]{classProperties[i].Name}[/]").Centered());
+                    table.AddColumn(new TableColumn($"[{DumpperColor.Green.ToText()}]{classProperties[i].Name}[/]").Centered());
             }
 
             if (!isTableColumnGenerated) isTableColumnGenerated = true;

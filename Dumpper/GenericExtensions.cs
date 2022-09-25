@@ -1,4 +1,9 @@
-﻿using System.Reflection;
+﻿// ---------------------------------------------------------------
+// Copyright (c) Pritom Purkayasta All rights reserved.
+// FREE TO USE TO CONNECT THE WORLD
+// ---------------------------------------------------------------
+
+using System.Reflection;
 using Dumpper.Writer;
 
 namespace Dumpper;
@@ -14,20 +19,23 @@ public static class GenericExtensions
     /// <param name="instance"></param>
     public static void Dump<T>(this T instance) where T : class
     {
-        var className = typeof(T).Name;
+        var type = instance?.GetType() ?? typeof(T);
+
+        var className = type?.Name;
 
         if (instance is null)
         {
-            if (IsItInterface(typeof(T))) return;
+            if (type is null) return;
 
-            instance = (T)Activator.CreateInstance(typeof(T));
-            Printer.Print(instance?.GetType().GetProperties(), className);
+            if (IsItInterface(type)) return;
+
+            instance = (T)Activator.CreateInstance(type);
+            Printer.Print(type.GetProperties(), className ?? string.Empty);
 
             Printer.PrintLine($"Empty instances {className}");
             return;
         }
 
-        var type = instance.GetType();
 
         if (IsPrimitiveCollection(type, instance))
             return;
@@ -43,14 +51,11 @@ public static class GenericExtensions
     /// <param name="instances"></param>
     public static void Dump<T>(this List<T> instances) where T : class
     {
-        if (instances.Count < 1) return;
+        if (instances is null || instances.Count < 1) return;
 
         var type = instances[0].GetType();
 
-        foreach (var item in instances)
-        {
-            if (!IsPrimitiveCollection(type, item)) break;
-        }
+        foreach (var item in instances) if (!IsPrimitiveCollection(type, item)) break;
 
         var properties = type.GetProperties();
         Printer.PrintList(properties, instances);
@@ -58,10 +63,13 @@ public static class GenericExtensions
 
     private static bool IsPrimitiveCollection<T>(IReflect type, T instance)
     {
-        var underlyingBaseType = type.UnderlyingSystemType;
-        var underlyingSystemName = type.UnderlyingSystemType.Name;
+        var baseType = type?.UnderlyingSystemType;
+        var systemType = baseType?.Name;
 
-        if (underlyingSystemName.Contains("Int"))
+        if (baseType is null) return false;
+        if (string.IsNullOrEmpty(systemType)) return false;
+
+        if (systemType.Contains("Int"))
         {
             try
             {
@@ -75,7 +83,7 @@ public static class GenericExtensions
             return true;
         }
 
-        if (underlyingSystemName.Contains("String"))
+        if (systemType.Contains("String"))
         {
             try
             {
@@ -89,15 +97,11 @@ public static class GenericExtensions
             return true;
         }
 
-        if (!underlyingSystemName.Contains("List")) return false;
+        if (!systemType.Contains("List")) return false;
 
-        var typeArguments = underlyingBaseType.UnderlyingSystemType.GetGenericArguments();
+        var typeArguments = baseType.GetGenericArguments();
 
-        if (typeArguments.Length < 1)
-        {
-            Printer.PrintLine("Nothing to print 🙏💔");
-            return true;
-        }
+        if (typeArguments.Length < 1) return true;
 
         var convertionType = typeArguments[0];
 
@@ -144,7 +148,7 @@ public static class GenericExtensions
     /// <param name="dictionary"></param>
     public static void Dump<TKey, TValue>(this Dictionary<TKey, TValue> dictionary)
     {
-        if (dictionary is null) return;
+        if (dictionary is null || dictionary.Count < 1) return;
 
         Printer.Print(dictionary);
     }
@@ -157,7 +161,7 @@ public static class GenericExtensions
     /// <param name="dictionaries"></param>
     public static void Dump<TKey, TValue>(this List<Dictionary<TKey, TValue>> dictionaries)
     {
-        if (dictionaries.Count < 1) return;
+        if (dictionaries is null || dictionaries.Count < 1) return;
 
         Printer.PrintList(dictionaries);
     }
@@ -170,7 +174,10 @@ public static class GenericExtensions
     /// <param name="dictionaries"></param>
     public static void Dump<TKey, TValue>(this IEnumerable<Dictionary<TKey, TValue>> dictionaries)
     {
+        if (dictionaries is null) return;
+
         var results = dictionaries.ToList();
+
         if (results.Count < 1) return;
         Printer.PrintList(results);
     }

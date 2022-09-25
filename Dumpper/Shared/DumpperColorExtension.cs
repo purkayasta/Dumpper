@@ -1,4 +1,9 @@
-﻿using Spectre.Console;
+﻿// ---------------------------------------------------------------
+// Copyright (c) Pritom Purkayasta All rights reserved.
+// FREE TO USE TO CONNECT THE WORLD
+// ---------------------------------------------------------------
+
+using Spectre.Console;
 
 namespace Dumpper.Shared;
 
@@ -18,7 +23,11 @@ internal static class DumpperColorExtension
             DumpperColor.DarkRed => Color.DarkRed_1,
             DumpperColor.Aqua => Color.Aqua,
             DumpperColor.DeepSkyBlue1 => Color.DeepSkyBlue1,
-            DumpperColor.RoyalBlue => Color.RoyalBlue1,
+            DumpperColor.RoyalBlue1 => Color.RoyalBlue1,
+            DumpperColor.Teal => Color.Teal,
+            DumpperColor.Purple => Color.Purple,
+            DumpperColor.White => Color.White,
+            DumpperColor.Lime => Color.Lime,
             _ => Color.LightCoral
         };
     }
@@ -37,7 +46,11 @@ internal static class DumpperColorExtension
             DumpperColor.DarkRed => "darkred_1",
             DumpperColor.Aqua => "aqua",
             DumpperColor.DeepSkyBlue1 => "deepskyblue1",
-            DumpperColor.RoyalBlue => "royalblue1",
+            DumpperColor.RoyalBlue1 => "royalblue1",
+            DumpperColor.Teal => "teal",
+            DumpperColor.Purple => "purple",
+            DumpperColor.White => "white",
+            DumpperColor.Lime => "lime",
             _ => "lightcoral"
         };
     }

@@ -1,4 +1,10 @@
-﻿using System.Reflection;
+﻿// ---------------------------------------------------------------
+// Copyright (c) Pritom Purkayasta All rights reserved.
+// FREE TO USE TO CONNECT THE WORLD
+// ---------------------------------------------------------------
+
+using System.Reflection;
+using Dumpper.Shared;
 using Spectre.Console;
 using Spectre.Console.Rendering;
 
@@ -8,18 +14,18 @@ internal sealed partial class Printer
 {
     internal static void Print<TKey, TValue>(Dictionary<TKey, TValue> instance)
     {
-        if (instance is null) return;
+        if (instance is null || instance.Count < 1) return;
 
         var table = CreateTable(instance);
-        
+
         if (table is null) return;
-        
+
         AnsiConsole.Write(table);
     }
 
     internal static void PrintList<TKey, TValue>(List<Dictionary<TKey, TValue>> instances)
     {
-        if (instances is null) return;
+        if (instances is null || !instances.Any()) return;
 
         var totalCount = instances.Count;
         var dictionaryTree = new Tree(totalCount.ToString()).Guide(TreeGuide.Line);
@@ -27,7 +33,8 @@ internal sealed partial class Printer
         for (int count = 0; count < totalCount; count++)
         {
             var node = dictionaryTree.AddNode(count.ToString());
-            node.AddNode(CreateTable(instances[count]));
+            var table = CreateTable(instances[count]);
+            if (table is not null) node.AddNode(table);
         }
 
         AnsiConsole.Write(dictionaryTree);
@@ -35,7 +42,7 @@ internal sealed partial class Printer
 
     private static IRenderable GenerateColumn(PropertyInfo[] propertyInfos, string className)
     {
-        var tree = Writer.Printer.GenerateTree(propertyInfos, className);
+        var tree = Printer.GenerateTree(propertyInfos, className);
         return tree;
     }
 
@@ -47,11 +54,12 @@ internal sealed partial class Printer
         return typeof(Type).IsClass;
     }
 
-    private static Table? CreateTable<TKey, TValue>(Dictionary<TKey, TValue>? instance)
+    private static Table CreateTable<TKey, TValue>(Dictionary<TKey, TValue> instance)
     {
         var dictionaryTable = new Table();
 
         if (instance is null) return null;
+        if (!instance.Keys.Any()) return null;
 
 
         dictionaryTable.AddColumn("Key");
@@ -66,27 +74,40 @@ internal sealed partial class Printer
 
             if (keyType && valueType)
             {
-                var keyProperties = item.Key.GetType().GetProperties();
-                var valueProperties = item.Key.GetType().GetProperties();
+                var keyProperties = item.Key?.GetType().GetProperties();
+                var valueProperties = item.Value?.GetType().GetProperties();
 
-                dictionaryTable.AddRow(GenerateColumn(keyProperties, typeof(TKey).Name),
-                    GenerateColumn(valueProperties, typeof(TValue).Name));
+                if (keyProperties is not null && valueProperties is not null)
+                {
+                    dictionaryTable.AddRow(
+                        GenerateColumn(keyProperties, typeof(TKey).Name),
+                        GenerateColumn(valueProperties, typeof(TValue).Name));
+                }
             }
             else if (keyType)
             {
-                var keyProperties = item.Key.GetType().GetProperties();
-                dictionaryTable.AddRow(GenerateColumn(keyProperties, typeof(TKey).Name),
-                    new Markup(item.Value?.ToString()));
+                var keyProperties = item.Key?.GetType().GetProperties();
+                if (keyProperties is not null)
+                {
+                    dictionaryTable.AddRow(
+                        GenerateColumn(keyProperties, typeof(TKey).Name),
+                        new Markup($"[{Utils.RandomColor().ToText()}]{item.Value?.ToString() ?? string.Empty}[/]"));
+                }
+
             }
             else if (valueType)
             {
-                var valueProperties = item.Value.GetType().GetProperties();
-                dictionaryTable.AddRow(new Markup(item.Key?.ToString()),
-                    GenerateColumn(valueProperties, typeof(TValue).Name));
+                var valueProperties = item.Value?.GetType().GetProperties();
+                if (valueProperties is not null)
+                {
+                    dictionaryTable.AddRow(
+                        new Markup(item.Key?.ToString() ?? string.Empty),
+                        GenerateColumn(valueProperties, typeof(TValue).Name));
+                }
             }
             else
             {
-                dictionaryTable.AddRow(item.Key.ToString(), item.Value.ToString());
+                dictionaryTable.AddRow(new Markup(item.Key?.ToString() ?? string.Empty), new Markup(item.Value?.ToString() ?? string.Empty));
             }
         }
 

@@ -1,4 +1,9 @@
-﻿using Dumpper.Writer;
+﻿// ---------------------------------------------------------------
+// Copyright (c) Pritom Purkayasta All rights reserved.
+// FREE TO USE TO CONNECT THE WORLD
+// ---------------------------------------------------------------
+
+using Dumpper.Writer;
 
 namespace Dumpper;
 
