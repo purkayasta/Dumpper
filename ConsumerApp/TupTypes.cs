@@ -1,5 +1,5 @@
 using System;
-using Dumpper.Types.Collections;
+using Dumpper;
 namespace ConsumerApp
 {
 	public class TupTypes

@@ -2,7 +2,7 @@
 
 using System;
 using System.Collections.Generic;
-using Dumpper.Types.Collections;
+using Dumpper;
 
 namespace ConsumerApp
 {

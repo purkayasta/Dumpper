@@ -1,0 +1,44 @@
+﻿using Spectre.Console;
+
+namespace Dumpper.Shared;
+
+internal static class DumpperColorExtension
+{
+    internal static Color ToColor(this DumpperColor color)
+    {
+        return color switch
+        {
+            DumpperColor.Maroon => Color.Maroon,
+            DumpperColor.Green => Color.Green1,
+            DumpperColor.LightGreen => Color.LightGreen_1,
+            DumpperColor.Cyan => Color.Cyan1,
+            DumpperColor.Navy => Color.Navy,
+            DumpperColor.Olive => Color.Olive,
+            DumpperColor.Red => Color.Red1,
+            DumpperColor.DarkRed => Color.DarkRed_1,
+            DumpperColor.Aqua => Color.Aqua,
+            DumpperColor.DeepSkyBlue1 => Color.DeepSkyBlue1,
+            DumpperColor.RoyalBlue => Color.RoyalBlue1,
+            _ => Color.LightCoral
+        };
+    }
+
+    internal static string ToText(this DumpperColor color)
+    {
+        return color switch
+        {
+            DumpperColor.Maroon => "maroon",
+            DumpperColor.Green => "green1",
+            DumpperColor.LightGreen => "lightgreen_1",
+            DumpperColor.Cyan => "cyan1",
+            DumpperColor.Navy => "navy",
+            DumpperColor.Olive => "olive",
+            DumpperColor.Red => "red1",
+            DumpperColor.DarkRed => "darkred_1",
+            DumpperColor.Aqua => "aqua",
+            DumpperColor.DeepSkyBlue1 => "deepskyblue1",
+            DumpperColor.RoyalBlue => "royalblue1",
+            _ => "lightcoral"
+        };
+    }
+}

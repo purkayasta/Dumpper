@@ -1,7 +1,7 @@
 ﻿
 
 using System.Collections.Generic;
-using Dumpper.Types.Collections;
+using Dumpper;
 
 namespace ConsumerApp
 {
@@ -19,7 +19,7 @@ namespace ConsumerApp
 			int[] vs = list.ToArray();
 			string[] strArray = new string[5] { "asd", string.Empty, "23", "", "rgdf" };
 
-			//vs.Dump(); //=> base type
+			vs.Dump(); //=> base type
 			list.Dump(); //=> generic type
 			strArray.Dump(); // =>'
 			

@@ -1,16 +1,16 @@
-namespace Dumpper.Shared
+namespace Dumpper.Shared;
+
+internal enum DumpperColor
 {
-    public enum DumpperColor
-    {
-        Maroon,
-        LightGreen,
-        Green,
-        Olive,
-        Navy,
-        Cyan,
-        Red,
-        DarkRed
-    }
-
-
+    Maroon,
+    LightGreen,
+    Green,
+    Olive,
+    Navy,
+    Cyan,
+    Red,
+    DarkRed,
+    Aqua,
+    DeepSkyBlue1,
+    RoyalBlue
 }
