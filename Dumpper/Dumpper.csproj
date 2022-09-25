@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
@@ -9,7 +9,15 @@
 		<PackageTags>C#, dotnet, dumping stuff in terminal, Console, Print, Writeline</PackageTags>
 		<Description>Print any type in your console</Description>
 		<Authors>Pritom Purkayasta</Authors>
+		<RepositoryUrl>https://github.com/purkayasta/Dumpper</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/purkayasta/Dumpper</PackageProjectUrl>
+		<Copyright>Pritom Purkayasta</Copyright>
+		<RepositoryType>git</RepositoryType>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Spectre.Console" Version="0.42.0" />
