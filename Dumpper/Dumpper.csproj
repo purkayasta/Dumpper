@@ -5,7 +5,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<PackageId>Dumpper</PackageId>
-		<Version>0.0.5</Version>
+		<Version>0.0.6</Version>
 		<PackageTags>C#, dotnet, dumping stuff in terminal, Console, Print, Writeline</PackageTags>
 		<Description>Print any type in your console</Description>
 		<Authors>Pritom Purkayasta</Authors>
@@ -13,10 +13,12 @@
 		<PackageProjectUrl>https://github.com/purkayasta/Dumpper</PackageProjectUrl>
 		<Copyright>Pritom Purkayasta</Copyright>
 		<RepositoryType>git</RepositoryType>
+		<PackageIconUrl></PackageIconUrl>
+		<PackageIcon>dumpper.png</PackageIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  
+		<None Pack="True" Include="dumpper.png" PackagePath="\"></None>
 	</ItemGroup>
 
 	<ItemGroup>
