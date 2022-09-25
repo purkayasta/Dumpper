@@ -1,11 +1,12 @@
 # Dumpper - Just Print It ✂ (An utility Extension)
 
 Able to print anything in your console 🎉
+[NUGET](https://www.nuget.org/packages/Dumpper/)
 
-![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/Dumpper?color=red&style=for-the-badge)
-![Nuget](https://img.shields.io/nuget/dt/Dumpper?color=blue&style=for-the-badge)
+![Nuget](https://img.shields.io/nuget/v/Dumpper)
+![Download](https://img.shields.io/nuget/dt/Dumpper?color=blue&style=plastic)
+![released](https://img.shields.io/github/release-date/purkayasta/dumpper?style=flat-square)
 
-[Nuget](https://www.nuget.org/packages/Dumpper/)
 
 # Usage
 
