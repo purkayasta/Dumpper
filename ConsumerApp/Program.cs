@@ -7,16 +7,16 @@ using System;
 //Console.WriteLine("=============");
 
 
-new DicTypes().Execute();
-
-new TupTypes().Execute();
-
-new CommonTypeTest().Execute();
-new ClassTypes().Execute();
+// new DicTypes().Execute();
+//
+// new TupTypes().Execute();
+//
+// new CommonTypeTest().Execute();
+// new ClassTypes().Execute();
 
 //Console.WriteLine("-====================-");
 
-//new StructType().Execute();
+new StructType().Execute();
 
 //Tasks.Execute();
 

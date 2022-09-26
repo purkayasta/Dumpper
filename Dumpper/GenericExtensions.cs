@@ -13,7 +13,7 @@ public static class GenericExtensions
     #region Generic Poco Extensions
 
     /// <summary>
-    /// Print the value of this type
+    /// Print the poco value.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="instance"></param>
@@ -27,7 +27,7 @@ public static class GenericExtensions
         {
             if (type is null) return;
 
-            if (IsItInterface(type)) return;
+            if (Printer.IsItInterface(type)) return;
 
             instance = (T)Activator.CreateInstance(type);
             Printer.Print(type.GetProperties(), className ?? string.Empty);
@@ -37,7 +37,7 @@ public static class GenericExtensions
         }
 
 
-        if (IsPrimitiveCollection(type, instance))
+        if (Printer.IsPrimitiveCollection(type, instance))
             return;
 
         var properties = type.GetProperties();
@@ -55,85 +55,14 @@ public static class GenericExtensions
 
         var type = instances[0].GetType();
 
-        foreach (var item in instances) if (!IsPrimitiveCollection(type, item)) break;
+        foreach (var item in instances)
+        {
+            if (!Printer.IsPrimitiveCollection(type, item))
+                break;
+        }
 
         var properties = type.GetProperties();
         Printer.PrintList(properties, instances);
-    }
-
-    private static bool IsPrimitiveCollection<T>(IReflect type, T instance)
-    {
-        var baseType = type?.UnderlyingSystemType;
-        var systemType = baseType?.Name;
-
-        if (baseType is null) return false;
-        if (string.IsNullOrEmpty(systemType)) return false;
-
-        if (systemType.Contains("Int"))
-        {
-            try
-            {
-                Printer.Print(instance as int[]);
-            }
-            catch (Exception)
-            {
-                Printer.PrintLine(instance as string);
-            }
-
-            return true;
-        }
-
-        if (systemType.Contains("String"))
-        {
-            try
-            {
-                Printer.Print(instance as string[]);
-            }
-            catch (Exception)
-            {
-                Printer.PrintLine(instance as string);
-            }
-
-            return true;
-        }
-
-        if (!systemType.Contains("List")) return false;
-
-        var typeArguments = baseType.GetGenericArguments();
-
-        if (typeArguments.Length < 1) return true;
-
-        var convertionType = typeArguments[0];
-
-        if (convertionType.Name.Contains("Int"))
-        {
-            var converted = instance as List<int>;
-            if (converted?.Count > 0) Printer.Print(converted.ToArray());
-
-            return true;
-        }
-
-        if (convertionType.Name.Contains("String"))
-        {
-            var converted = instance as List<string>;
-            if (converted?.Count > 0) Printer.Print(converted.ToArray());
-
-            return true;
-        }
-
-        return false;
-    }
-
-    private static bool IsItInterface(Type type)
-    {
-        if (!type.IsInterface) return false;
-
-        var methods = type.GetMethods();
-        var properties = type.GetProperties();
-
-        Printer.Print(methods, properties, type.Name);
-
-        return true;
     }
 
     #endregion
@@ -396,4 +325,61 @@ public static class GenericExtensions
         where TRest : struct => Printer.Print(tuple);
 
     #endregion
+}
+
+public static class OtherGenericExtensions
+{
+    /// <summary>
+    /// Print the struct value.
+    /// </summary>
+    /// <param name="instance"></param>
+    /// <typeparam name="T"></typeparam>
+    public static void Dump<T>(this T instance) where T : struct
+    {
+        Printer.Print(instance);
+    }
+
+    /// <summary>
+    /// Print the list of structs
+    /// </summary>
+    /// <param name="instances"></param>
+    /// <typeparam name="T"></typeparam>
+    public static void Dump<T>(this List<T> instances) where T : struct
+    {
+        if (instances.Count < 1) return;
+
+        var type = instances[0].GetType();
+
+        foreach (var item in instances)
+        {
+            if (!Printer.IsPrimitiveCollection(type, item))
+                break;
+        }
+
+        var properties = type.GetProperties();
+        Printer.PrintList(properties, instances);
+    }
+
+    /// <summary>
+    /// Print the Enumerable of structs.
+    /// </summary>
+    /// <param name="instances"></param>
+    /// <typeparam name="T"></typeparam>
+    public static void Dump<T>(this IEnumerable<T> instances) where T : struct
+    {
+        var resultingInstance = instances.ToList();
+
+        if (resultingInstance.Count < 1) return;
+
+        var type = resultingInstance[0].GetType();
+
+        foreach (var item in resultingInstance)
+        {
+            if (!Printer.IsPrimitiveCollection(type, item))
+                break;
+        }
+
+        var properties = type.GetProperties();
+        Printer.PrintList(properties, resultingInstance);
+    }
 }
