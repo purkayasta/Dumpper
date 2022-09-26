@@ -1,5 +1,6 @@
 ﻿using ConsumerApp;
 using System;
+using Dumpper;
 
 //Console.WriteLine("=============");
 
@@ -16,8 +17,18 @@ using System;
 
 //Console.WriteLine("-====================-");
 
-new StructType().Execute();
+// new StructType().Execute();
 
 //Tasks.Execute();
 
+MyEnum.Hello.Dump();
+
+
 //System.Console.WriteLine(DateTime.UtcNow.ToShortDateString());
+
+enum MyEnum
+{
+    Hello,
+    Hello2,
+    Hello3
+}

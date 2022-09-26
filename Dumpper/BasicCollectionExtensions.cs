@@ -180,7 +180,7 @@ public static class BasicCollectionExtensions
     public static void Dump(this List<string> values)
     {
         if (values.Count < 1) return;
-        Printer.Print(values);
+        Printer.Print(values.ToArray());
     }
 
     #endregion

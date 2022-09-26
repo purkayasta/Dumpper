@@ -16,33 +16,14 @@ internal sealed partial class Printer
         Tree tree = GenerateTree(properties, className);
         AnsiConsole.Write(tree);
     }
-
-    private static Tree GenerateTree(PropertyInfo[] properties, string className)
-    {
-        Tree tree = new Tree(string.IsNullOrEmpty(className) ? "Default" : className).Style($"{DumpperColor.Aqua.ToText()}");
-
-        foreach (var property in properties)
-            tree.AddNodes(new Markup($"[bold {DumpperColor.Red.ToText()}]{property.Name}[/]"));
-
-        return tree;
-    }
-
-    private static Tree GenerateTree<T>(T instance, PropertyInfo[] properties, string className)
-    {
-        Tree tree = new Tree(string.IsNullOrEmpty(className) ? "Default" : className).Style($"{DumpperColor.Aqua.ToText()}");
-
-        foreach (var property in properties)
-            tree.AddNodes(new Markup($"[bold {DumpperColor.Purple.ToText()}]{property?.Name} [/] : {property?.GetValue(instance, null)}"));
-
-        return tree;
-    }
-
+    
     internal static void Print<T>(PropertyInfo[] properties, string className, T instance)
     {
         var tree = GenerateTree(instance, properties, className);
 
         AnsiConsole.Write(tree);
     }
+
     internal static void PrintList<T>(PropertyInfo[] classProperties, IEnumerable<T> instances)
     {
         Table table = new();
@@ -60,7 +41,8 @@ internal sealed partial class Printer
                 columnValues[i] = values?.ToString() ?? String.Empty;
 
                 if (!isTableColumnGenerated)
-                    table.AddColumn(new TableColumn($"[{DumpperColor.Green.ToText()}]{classProperties[i].Name}[/]").Centered());
+                    table.AddColumn(new TableColumn($"[{DumpperColor.Green.ToText()}]{classProperties[i].Name}[/]")
+                        .Centered());
             }
 
             if (!isTableColumnGenerated) isTableColumnGenerated = true;
@@ -72,7 +54,8 @@ internal sealed partial class Printer
 
         AnsiConsole.Write(table);
     }
-    
+
+
     internal static bool IsPrimitiveCollection<T>(IReflect type, T instance)
     {
         var baseType = type?.UnderlyingSystemType;
@@ -146,5 +129,31 @@ internal sealed partial class Printer
         Printer.Print(methods, properties, type.Name);
 
         return true;
+    }
+
+
+    private static Tree GenerateTree(PropertyInfo[] properties, string className)
+    {
+        Tree tree =
+            new Tree(string.IsNullOrEmpty(className) ? "Default" : className).Style($"{DumpperColor.Aqua.ToText()}");
+
+        foreach (var property in properties)
+            tree.AddNodes(new Markup($"[bold {DumpperColor.Red.ToText()}]{property.Name}[/]"));
+
+        return tree;
+    }
+
+    private static Tree GenerateTree<T>(T instance, PropertyInfo[] properties, string className)
+    {
+        Tree tree =
+            new Tree(string.IsNullOrEmpty(className) ? "Default" : className).Style($"{DumpperColor.Aqua.ToText()}");
+
+        foreach (var property in properties)
+        {
+            tree.AddNodes(new Markup(
+                $"[bold {DumpperColor.Purple.ToText()}]{property?.Name} [/] : {property?.GetValue(instance, null)}"));
+        }
+
+        return tree;
     }
 }

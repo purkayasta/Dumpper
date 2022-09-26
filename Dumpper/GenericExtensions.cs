@@ -235,12 +235,6 @@ public static class GenericExtensions
     /// Print the value tuple.
     /// </summary>
     /// <param name="tuple"></param>
-    public static void Dump(this ValueTuple tuple) => Printer.Print(tuple);
-
-    /// <summary>
-    /// Print the value tuple.
-    /// </summary>
-    /// <param name="tuple"></param>
     /// <typeparam name="T1"></typeparam>
     public static void Dump<T1>(this ValueTuple<T1> tuple) => Printer.Print(tuple);
 
@@ -336,7 +330,13 @@ public static class OtherGenericExtensions
     /// <typeparam name="T"></typeparam>
     public static void Dump<T>(this T instance) where T : struct
     {
-        Printer.Print(instance);
+        var type = typeof(T);
+        var className = type.Name;
+
+        if (Printer.IsItEnum(type, instance)) return;
+        
+        var properties = type.GetProperties();
+        Printer.Print(properties, className, instance);
     }
 
     /// <summary>
@@ -382,4 +382,6 @@ public static class OtherGenericExtensions
         var properties = type.GetProperties();
         Printer.PrintList(properties, resultingInstance);
     }
+    
+    
 }
