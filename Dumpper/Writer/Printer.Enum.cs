@@ -1,4 +1,8 @@
-﻿using System.Reflection;
+﻿// ---------------------------------------------------------------
+// Copyright (c) Pritom Purkayasta All rights reserved.
+// FREE TO USE TO CONNECT THE WORLD
+// ---------------------------------------------------------------
+
 
 namespace Dumpper.Writer;
 
@@ -9,7 +13,7 @@ internal sealed partial class Printer
     {
         if (type.UnderlyingSystemType.IsEnum)
         {
-            Console.WriteLine(Enum.GetName(type, enumInstance));
+            Enum.GetName(type, enumInstance).Dump();
             return true;
         }
 

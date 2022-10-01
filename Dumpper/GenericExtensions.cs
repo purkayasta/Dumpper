@@ -8,7 +8,7 @@ using Dumpper.Writer;
 
 namespace Dumpper;
 
-public static class GenericExtensions
+public static class GenericClassExtensions
 {
     #region Generic Poco Extensions
 
@@ -321,7 +321,7 @@ public static class GenericExtensions
     #endregion
 }
 
-public static class OtherGenericExtensions
+public static class GenericStructExtension
 {
     /// <summary>
     /// Print the struct value.
