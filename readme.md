@@ -1,6 +1,6 @@
-# Dumpper - Just Print It ✂ (An utility Extension)
+# Dumpper - Just Print It ✂
 
-Able to print anything in your console 🎉
+Able to print with colors in your terminal 🎉
 [NUGET](https://www.nuget.org/packages/Dumpper/)
 
 ![Nuget](https://img.shields.io/nuget/v/Dumpper)
@@ -28,3 +28,6 @@ model.Dump();// ==> Dump();
 ![demo2](https://user-images.githubusercontent.com/12936435/150546063-1881b6c2-9d9b-44b5-93e0-4429ed6d4bbd.png)
 
 ![demo2_run](https://user-images.githubusercontent.com/12936435/150546064-194f55ac-9b43-4eb1-a743-e862ebaac309.png)
+
+# Not Yet:
+- Record Support
