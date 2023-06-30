@@ -3,89 +3,101 @@
 // FREE TO USE TO CONNECT THE WORLD
 // ---------------------------------------------------------------
 
-namespace Dumpper.Writer;
-internal sealed partial class Printer
+namespace Dumpper.Writer
 {
-    internal static void Print(string[] arr)
+    internal sealed partial class Printer
     {
-        int count = arr.Length;
-        Printer.PrintLine($"({count})", "Collection Length:");
-        Printer.PrintBracket("[");
-        for (int i = 0; i < count; i++)
+        internal static void Print(string[]? arr)
         {
-            Printer.Print(arr[i]);
+            if (arr is null) return;
 
-            if (i < count - 1)
-                Printer.PrintComma(", ");
+            int count = arr.Length;
+            Printer.PrintLine($"({count})", "Collection Length:");
+            Printer.PrintBracket("[");
+            for (int i = 0; i < count; i++)
+            {
+                Printer.Print(arr[i]);
+
+                if (i < count - 1)
+                    Printer.PrintComma(", ");
+            }
+
+            Printer.PrintBracket("]");
+            Printer.PrintNewLine();
         }
 
-        Printer.PrintBracket("]");
-        Printer.PrintNewLine();
-    }
-
-    internal static void Print(int[] arr)
-    {
-        int count = arr.Length;
-        Printer.PrintLine($"({count})", "Collection Length:");
-        Printer.PrintBracket("[");
-        for (int i = 0; i < count; i++)
+        internal static void Print(int[]? arr)
         {
-            Printer.Print(arr[i].ToString());
+            if (arr is null) return;
 
-            if (i < count - 1)
-                Printer.PrintComma(", ");
+            int count = arr.Length;
+            Printer.PrintLine($"({count})", "Collection Length:");
+            Printer.PrintBracket("[");
+            for (int i = 0; i < count; i++)
+            {
+                Printer.Print(arr[i].ToString());
+
+                if (i < count - 1)
+                    Printer.PrintComma(", ");
+            }
+
+            Printer.PrintBracket("]");
+            Printer.PrintNewLine();
         }
 
-        Printer.PrintBracket("]");
-        Printer.PrintNewLine();
-    }
-
-    internal static void Print(double[] arr)
-    {
-        int count = arr.Length;
-        Printer.PrintLine($"({count})", "Collection Length:");
-        Printer.PrintBracket("[");
-        for (int i = 0; i < count; i++)
+        internal static void Print(double[]? arr)
         {
-            Printer.Print(arr[i].ToString());
+            if (arr is null) return;
 
-            if (i < count - 1)
-                Printer.PrintComma(", ");
+            int count = arr.Length;
+            Printer.PrintLine($"({count})", "Collection Length:");
+            Printer.PrintBracket("[");
+            for (int i = 0; i < count; i++)
+            {
+                Printer.Print(arr[i].ToString());
+
+                if (i < count - 1)
+                    Printer.PrintComma(", ");
+            }
+
+            Printer.PrintBracket("]");
+            Printer.PrintNewLine();
         }
 
-        Printer.PrintBracket("]");
-        Printer.PrintNewLine();
-    }
-
-    internal static void Print(float[] arr)
-    {
-        int count = arr.Length;
-        Printer.PrintLine($"({count})", "Collection Length:");
-        Printer.PrintBracket("[");
-        for (int i = 0; i < count; i++)
+        internal static void Print(float[]? arr)
         {
-            Printer.Print(arr[i].ToString());
-            if (i < count - 1)
-                Printer.PrintComma(", ");
+            if (arr is null) return;
+
+            int count = arr.Length;
+            Printer.PrintLine($"({count})", "Collection Length:");
+            Printer.PrintBracket("[");
+            for (int i = 0; i < count; i++)
+            {
+                Printer.Print(arr[i].ToString());
+                if (i < count - 1)
+                    Printer.PrintComma(", ");
+            }
+
+            Printer.PrintBracket("]");
+            Printer.PrintNewLine();
         }
 
-        Printer.PrintBracket("]");
-        Printer.PrintNewLine();
-    }
-
-    internal static void Print(decimal[] arr)
-    {
-        int count = arr.Length;
-        Printer.PrintLine($"({count})", "Collection Length:");
-        Printer.PrintBracket("[");
-        for (int i = 0; i < count; i++)
+        internal static void Print(decimal[]? arr)
         {
-            Printer.Print(arr[i].ToString());
-            if (i < count - 1)
-                Printer.PrintComma(", ");
-        }
+            if (arr is null) return;
 
-        Printer.PrintBracket("]");
-        Printer.PrintNewLine();
+            int count = arr.Length;
+            Printer.PrintLine($"({count})", "Collection Length:");
+            Printer.PrintBracket("[");
+            for (int i = 0; i < count; i++)
+            {
+                Printer.Print(arr[i].ToString());
+                if (i < count - 1)
+                    Printer.PrintComma(", ");
+            }
+
+            Printer.PrintBracket("]");
+            Printer.PrintNewLine();
+        }
     }
 }

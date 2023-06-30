@@ -21,8 +21,9 @@ using Dumpper;
 
 //Tasks.Execute();
 
-MyEnum.Hello.Dump();
+//MyEnum.Hello.Dump();
 
+NestedClass n = new NestedClass();
 
 //System.Console.WriteLine(DateTime.UtcNow.ToShortDateString());
 

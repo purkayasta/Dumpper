@@ -3,23 +3,24 @@
 // FREE TO USE TO CONNECT THE WORLD
 // ---------------------------------------------------------------
 
-namespace Dumpper.Shared;
-
-internal enum DumpperColor
+namespace Dumpper.Shared
 {
-    Maroon,
-    LightGreen,
-    Green,
-    Olive,
-    Navy,
-    Cyan,
-    Red,
-    DarkRed,
-    Aqua,
-    DeepSkyBlue1,
-    RoyalBlue1,
-    Teal,
-    Purple,
-    White,
-    Lime
+    internal enum DumpperColor
+    {
+        Maroon,
+        LightGreen,
+        Green,
+        Olive,
+        Navy,
+        Cyan,
+        Red,
+        DarkRed,
+        Aqua,
+        DeepSkyBlue1,
+        RoyalBlue1,
+        Teal,
+        Purple,
+        White,
+        Lime
+    }
 }
