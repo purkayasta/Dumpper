@@ -203,7 +203,7 @@ namespace Dumpper.Writer
 
                         if (props is null) continue;
 
-                        var branchTree 
+                        var branchTree
                             = new Tree(string.IsNullOrEmpty(property.Name) ? "Default" : property.Name).Style($"{DumpperColor.Aqua.ToText()}");
 
                         branchTree.AddNode(

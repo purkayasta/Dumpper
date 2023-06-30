@@ -7,8 +7,10 @@ namespace Dumpper.Writer
 {
     internal sealed partial class Printer
     {
-        internal static void Print(string[] arr)
+        internal static void Print(string[]? arr)
         {
+            if (arr is null) return;
+
             int count = arr.Length;
             Printer.PrintLine($"({count})", "Collection Length:");
             Printer.PrintBracket("[");
@@ -24,8 +26,10 @@ namespace Dumpper.Writer
             Printer.PrintNewLine();
         }
 
-        internal static void Print(int[] arr)
+        internal static void Print(int[]? arr)
         {
+            if (arr is null) return;
+
             int count = arr.Length;
             Printer.PrintLine($"({count})", "Collection Length:");
             Printer.PrintBracket("[");
@@ -41,8 +45,10 @@ namespace Dumpper.Writer
             Printer.PrintNewLine();
         }
 
-        internal static void Print(double[] arr)
+        internal static void Print(double[]? arr)
         {
+            if (arr is null) return;
+
             int count = arr.Length;
             Printer.PrintLine($"({count})", "Collection Length:");
             Printer.PrintBracket("[");
@@ -58,8 +64,10 @@ namespace Dumpper.Writer
             Printer.PrintNewLine();
         }
 
-        internal static void Print(float[] arr)
+        internal static void Print(float[]? arr)
         {
+            if (arr is null) return;
+
             int count = arr.Length;
             Printer.PrintLine($"({count})", "Collection Length:");
             Printer.PrintBracket("[");
@@ -74,8 +82,10 @@ namespace Dumpper.Writer
             Printer.PrintNewLine();
         }
 
-        internal static void Print(decimal[] arr)
+        internal static void Print(decimal[]? arr)
         {
+            if (arr is null) return;
+
             int count = arr.Length;
             Printer.PrintLine($"({count})", "Collection Length:");
             Printer.PrintBracket("[");
