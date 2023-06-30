@@ -4,19 +4,22 @@
 // ---------------------------------------------------------------
 
 
-namespace Dumpper.Writer;
-
-internal sealed partial class Printer
+namespace Dumpper.Writer
 {
-    // Have to evaluate any other options
-    internal static bool IsItEnum<T>(Type type, T enumInstance)
+    internal sealed partial class Printer
     {
-        if (type.UnderlyingSystemType.IsEnum)
+        // Have to evaluate any other options
+        internal static bool IsItEnum<T>(Type type, T? enumInstance)
         {
-            Enum.GetName(type, enumInstance).Dump();
-            return true;
-        }
+            ArgumentNullException.ThrowIfNull(enumInstance);
 
-        return false;
+            if (type.UnderlyingSystemType.IsEnum)
+            {
+                Enum.GetName(type, enumInstance)?.Dump();
+                return true;
+            }
+
+            return false;
+        }
     }
 }

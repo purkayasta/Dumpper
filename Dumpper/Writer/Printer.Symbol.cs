@@ -6,11 +6,16 @@
 using Dumpper.Shared;
 using Spectre.Console;
 
-namespace Dumpper.Writer;
-
-internal sealed partial class Printer
+namespace Dumpper.Writer
 {
-    internal static void PrintBracket(string bracket, DumpperColor color = DumpperColor.Red) => AnsiConsole.Markup("[{0}]{1}[/]", color.ToText(), Markup.Escape($"{bracket}"));
-    internal static void PrintComma(string comma, DumpperColor color = DumpperColor.Lime) => AnsiConsole.Markup("[{0}]{1}[/]", color.ToText(), Markup.Escape(comma));
-    internal static void PrintNewLine() => AnsiConsole.WriteLine();
+    internal sealed partial class Printer
+    {
+        internal static void PrintBracket(string bracket, DumpperColor color = DumpperColor.Red)
+            => AnsiConsole.Markup("[{0}]{1}[/]", color.ToText(), Markup.Escape($"{bracket}"));
+
+        internal static void PrintComma(string comma, DumpperColor color = DumpperColor.Lime)
+            => AnsiConsole.Markup("[{0}]{1}[/]", color.ToText(), Markup.Escape(comma));
+
+        internal static void PrintNewLine() => AnsiConsole.WriteLine();
+    }
 }
