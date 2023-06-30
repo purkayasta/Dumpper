@@ -37,11 +37,11 @@ namespace Dumpper
             }
 
 
-            if (Printer.IsPrimitiveCollection(type, instance))
+            if (Printer.IsPrimitiveCollection(type!, instance))
                 return;
 
-            var properties = type.GetProperties();
-            Printer.Print(properties, className, instance);
+            var properties = type!.GetProperties();
+            Printer.Print(properties, className!, instance);
         }
 
         /// <summary>
